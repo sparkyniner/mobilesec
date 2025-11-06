@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rogue AP Simulation (Python + Pyodide)</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Rogue Access Point Simulation</h1>
+    <p class="subtitle">Safe, in-browser Python simulation (Pyodide). Visualises how an evil-twin AP can lure clients.</p>
+
+    <div class="controls">
+      <label>Number of clients: <input id="numClients" type="number" value="6" min="1" max="20"></label>
+      <label>Trusted AP strength: <input id="trustedStrength" type="range" min="20" max="100" value="70"></label>
+      <label>Rogue AP strength: <input id="rogueStrength" type="range" min="20" max="120" value="80"></label>
+      <button id="startBtn">Start / Restart</button>
+      <button id="stepBtn">Step Once</button>
+      <button id="autoBtn">Auto Run</button>
+    </div>
+
+    <canvas id="canvas" width="900" height="420"></canvas>
+
+    <div id="log" class="log"></div>
+
+    <footer>Simulation is conceptual and safe — it does not perform any real network operations.</footer>
+  </div>
+
+  <!-- Pyodide - use recommended CDN -->
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.29.0/full/pyodide.js"></script>
+
+  <script src="/main.js"></script>
+</body>
+</html>
